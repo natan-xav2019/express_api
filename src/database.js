@@ -12,7 +12,7 @@ function salvar(produto) {
 }
 
 function getProduto(id) {
-    return produtos[id] | {}
+    return produtos[id] || {}
 }
 
 function getProdutos() {
