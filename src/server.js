@@ -15,7 +15,7 @@ app.get('/produtos/:id',(req,res,next) => {
     res.send(getProduto(req.params.id))
 })
 
-app.post('./produtos', (req,res,next) => {
+app.post('/produtos', (req,res,next) => {
     const produto = salvar({
         nome: req.body.nome,
         preco: req.body.preco
