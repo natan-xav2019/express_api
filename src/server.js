@@ -5,7 +5,7 @@ const app = express()
 const bodyParser = require('body-parser');
 const { salvar, getProduto, getProdutos } = require("./database")
 
-// app.use(bodyParser.json());
+app.use(bodyParser.json());
 
 app.get('/produtos',(req,res,next) => {
     res.send(getProdutos())
