@@ -3,7 +3,7 @@ const porta = 3003
 const express = require("express")
 const app = express()
 const bodyParser = require('body-parser');
-const { salvar, getProduto, getProdutos } = require("./database")
+const { excluir, salvar, getProduto, getProdutos } = require("./database")
 
 app.use(bodyParser.urlencoded({ extended: true }))
 
@@ -31,6 +31,11 @@ app.put('/produtos/:id', (req, res, next) => {
         preco: req.body.preco
     })
 
+    res.send(produto)
+})
+
+app.delete('/produtos/:id', (req, res, next) => {
+    const produto = excluir(req.params.id)
     res.send(produto)
 })
 
