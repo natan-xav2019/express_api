@@ -5,17 +5,17 @@ const app = express()
 const bodyParser = require('body-parser');
 const { salvar, getProduto, getProdutos } = require("./database")
 
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }))
 
-app.get('/produtos',(req,res,next) => {
+app.get('/produtos',(req, res, next) => {
     res.send(getProdutos())
 })
 
-app.get('/produtos/:id',(req,res,next) => {
+app.get('/produtos/:id',(req, res, next) => {
     res.send(getProduto(req.params.id))
 })
 
-app.post('/produtos', (req,res,next) => {
+app.post('/produtos', (req, res, next) => {
     const produto = salvar({
         nome: req.body.nome,
         preco: req.body.preco
